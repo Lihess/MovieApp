@@ -39,7 +39,7 @@ class App extends Component{
     .then(response => response.json()) //이진법으로 이루어진 데이터를 json으로 변경
     .then(json => json.data.movies)
     .catch(err => console.log(err));
-    //then : 그냥 작이 끝나면, catch : 에러 시
+    //then : 그냥 작업이 끝나면, catch : 에러 시
     //fetch() 함수는 API의 URL을 인자로 받고, 미래 시점에 얻게될 API 호출 결과를 Promise 객체로 리턴
   }  //then을 너무 많이 쓰면 콜백지옥으로..
   // componentDidMount 의 크기는 줄이는 것이 좋기에 이렇게 나눠서!
@@ -48,8 +48,8 @@ class App extends Component{
   render(){
     const {movies} = this.state;
     return (
-      <div className= {movies ? "App" : "App--loading"}>
-        {this.state.movies ? this._renderMovies() : "Loading"}
+      <div className={movies ? "App" : "App--loading"}>
+        {movies ? this._renderMovies() : "Loading"}
         {/* 데이터가 늘 즉시 가져올 수 있을리가 없으니, 이러한 방식으로 로딩을 기다림 */}
       </div>
     );
